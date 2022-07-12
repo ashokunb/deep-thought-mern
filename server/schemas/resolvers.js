@@ -3,6 +3,7 @@ const { User, Thought } = require('../models');
 // resolvers serve the response for our queries
 const resolvers = {
     Query: {
+        //finding all thoughts
         thoughts: async (parent, { username }) => {
             const params = username ? { username } : {};
             return Thought.find(params).sort({ createdAt: -1 });
